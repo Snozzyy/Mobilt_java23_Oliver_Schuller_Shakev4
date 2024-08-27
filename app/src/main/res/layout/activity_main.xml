@@ -28,7 +28,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.274"
+        app:layout_constraintVertical_bias="0.196"
         app:srcCompat="@android:drawable/alert_light_frame" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

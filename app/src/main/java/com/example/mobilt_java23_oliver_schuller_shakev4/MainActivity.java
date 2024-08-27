@@ -49,16 +49,22 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         ImageView imageViewBox = findViewById(R.id.imgViewBox);
-        Log.d("onSensorChanged", "X: " + sensorEvent.values[0] + " Y: " + sensorEvent.values[1] + " Z: " + sensorEvent.values[2]);
+        Log.d("onSensorChanged", "Y: " + sensorEvent.values[1] + " Z: " + sensorEvent.values[2]);
 
-        if (sensorEvent.values[0] > 25) {
+        if (sensorEvent.values[0] > 20) {
             Log.d("xAxis", "Left");
-            imageViewBox.setX(imageViewBox.getX() - 100);
-        } else if (sensorEvent.values[0] < -25) {
+            imageViewBox.setX(imageViewBox.getX() - 50);
+        } else if (sensorEvent.values[0] < -20) {
             Log.d("xAxis", "Right");
-            imageViewBox.setX(imageViewBox.getX() + 100);
+            imageViewBox.setX(imageViewBox.getX() + 50);
         }
 
-
+        if (sensorEvent.values[1] > 10) {
+            Log.d("yAxis", "Down - Axis = " + sensorEvent.values[1]);
+            imageViewBox.setY(imageViewBox.getY() + 250);
+        } else if (sensorEvent.values[1] < -10) {
+            Log.d("yAxis", "Up - Axis = " + sensorEvent.values[1]);
+            imageViewBox.setY(imageViewBox.getY() - 50);
+        }
     }
 }
