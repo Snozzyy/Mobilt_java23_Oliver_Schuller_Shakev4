@@ -103,14 +103,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         // Move the progress bar left or right depending on the accelerometer x-axis value
         if (xAxis > 5) {
-            Log.d("xAxis", "Left");
+            Log.d("xAxis", "Left " + xAxis);
             if (progressBarRight.getProgress() != 0)
                 progressBarRight.setProgress(progressBarRight.getProgress() - 5);
             else
                 progressBarLeft.setProgress(progressBarLeft.getProgress() + 5);
 
         } else if (xAxis < -5){
-            Log.d("xAxis", "Right");
+            Log.d("xAxis", "Right " + xAxis);
             if (progressBarLeft.getProgress() != 0)
                 progressBarLeft.setProgress(progressBarLeft.getProgress() - 5);
             else
@@ -119,18 +119,18 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         // Scale the box based on the accelerometer y-axis value
         if (yAxis > 7 && imageViewBox.getScaleX() < 2.5) {
-            Log.d("yAxis", "Up");
+            Log.d("yAxis", "Up " + yAxis);
             imageViewBox.setScaleX((float) (imageViewBox.getScaleX() + 0.1));
             imageViewBox.setScaleY((float) (imageViewBox.getScaleY() + 0.1));
         } else if (yAxis < 3 && imageViewBox.getScaleX() > 0.1) {
-            Log.d("yAxis", "Down");
+            Log.d("yAxis", "Down " + yAxis);
             imageViewBox.setScaleX((float) (imageViewBox.getScaleX() - 0.1));
             imageViewBox.setScaleY((float) (imageViewBox.getScaleY() - 0.1));
         }
 
         // Change the switch when meeting the z-value threshold
-        Log.d("zAxis", String.valueOf(zAxis));
         if (zAxis > 38 || zAxis < -38) {
+            Log.d("zAxis", "Shake " + zAxis);
             isSwitchOn = !isSwitchOn;
             bgSwitch.setChecked(isSwitchOn);
         }
