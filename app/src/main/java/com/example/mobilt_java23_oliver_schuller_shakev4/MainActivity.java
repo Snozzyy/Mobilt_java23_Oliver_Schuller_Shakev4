@@ -76,6 +76,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(this);
+    }
+
+    @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
